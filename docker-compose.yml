@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  rails:
+    build:
+      context: .
+      dockerfile:  ${PWD}/rails/Dockerfile
+      args:
+        - project_dir=./data/${PROJECT_DIR}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}/data/${PROJECT_DIR}:/usr/src/app
+    stdin_open: true
+    tty: true
+    env_file:
+      - ${PWD}/rails/rails.env
+
+# See postgres_basic/README.md on how to use this to connect to postgres service
+#networks:
+#  default:
+#    external:
+#      name: postgres-network
