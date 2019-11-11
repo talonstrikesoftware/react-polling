@@ -27,7 +27,7 @@ ARG project_dir
 COPY $project_dir/Gemfile /usr/src/app/
 WORKDIR /usr/src/app
 
-RUN bundle install
+#RUN bundle install
 
 EXPOSE 3000
 
